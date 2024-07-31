@@ -1,0 +1,204 @@
+[gd_scene load_steps=24 format=3 uid="uid://k07kn7shkl85"]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_2djy6"]
+[ext_resource type="PackedScene" uid="uid://b4e2a6nbkbpbs" path="res://scenes/drag_drop.tscn" id="1_ifoal"]
+[ext_resource type="Texture2D" uid="uid://cj0f5i2vmrnq2" path="res://assets/blue.png" id="2_dvs2s"]
+[ext_resource type="PackedScene" uid="uid://bryoy5bxu1gj1" path="res://scenes/answer_box.tscn" id="3_eweey"]
+[ext_resource type="Texture2D" uid="uid://cuxlweppknxgv" path="res://assets/green.png" id="3_rpkkp"]
+[ext_resource type="Texture2D" uid="uid://xnn8d54y3oe7" path="res://assets/pink.png" id="4_faiig"]
+[ext_resource type="Texture2D" uid="uid://cna3w0tk6y250" path="res://assets/purple.png" id="5_qhs2c"]
+[ext_resource type="Texture2D" uid="uid://b00l586v4gmny" path="res://assets/yellow.png" id="6_gk1rk"]
+[ext_resource type="PackedScene" uid="uid://c4t0jjxrivhwp" path="res://scenes/think_bubble.tscn" id="9_e5pk3"]
+[ext_resource type="FontFile" uid="uid://wnemqx8qlvt" path="res://assets/fonts/PixelOperator8.ttf" id="10_s6hwf"]
+[ext_resource type="Texture2D" uid="uid://c7buc7ojxrf5o" path="res://assets/Heart Asset/HeartBackground.png" id="11_114wt"]
+[ext_resource type="Texture2D" uid="uid://bh87puhqip0g3" path="res://assets/Heart Asset/Heart1.png" id="12_qsrvy"]
+[ext_resource type="Texture2D" uid="uid://cc77cmk71nj3x" path="res://assets/Heart Asset/Heart2.png" id="13_xkfi1"]
+[ext_resource type="Texture2D" uid="uid://qjo30umvtm31" path="res://assets/Heart Asset/Heart3.png" id="14_t1shs"]
+[ext_resource type="Texture2D" uid="uid://dies1ico2b7u3" path="res://assets/temp.png" id="15_rpmfb"]
+[ext_resource type="Script" path="res://scripts/game_over.gd" id="15_vmsio"]
+[ext_resource type="FontFile" uid="uid://bc47s4c4g18r6" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="16_vvd3g"]
+[ext_resource type="Texture2D" uid="uid://lo51h0cshk7s" path="res://assets/UI9.png" id="17_xfmb5"]
+[ext_resource type="Texture2D" uid="uid://b0wb4bsoi7q55" path="res://assets/UI10.png" id="18_hc4b2"]
+[ext_resource type="AudioStream" uid="uid://bydfbvydxhahg" path="res://assets/whoosh-clothing-drag-42291.mp3" id="20_faruo"]
+[ext_resource type="AudioStream" uid="uid://d1twqlvx2kkn1" path="res://assets/bell-98033.mp3" id="22_d22ir"]
+[ext_resource type="AudioStream" uid="uid://boh8mrywhhph2" path="res://assets/0727.MP3" id="23_niljk"]
+[ext_resource type="AudioStream" uid="uid://qfmu6vethfk1" path="res://assets/buzz-buzz-95806.mp3" id="23_y531o"]
+
+[node name="Game" type="Node2D"]
+process_mode = 1
+
+[node name="GameManager" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_2djy6")
+
+[node name="AnswerBox" parent="." groups=["answer_box"] instance=ExtResource("3_eweey")]
+custom_minimum_size = Vector2(120, 120)
+offset_left = 580.0
+offset_top = 320.0
+offset_right = 700.0
+offset_bottom = 440.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 332.0
+offset_top = 500.0
+offset_right = 948.0
+offset_bottom = 620.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BlueDD" parent="HBoxContainer" instance=ExtResource("1_ifoal")]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+texture = ExtResource("2_dvs2s")
+
+[node name="GreenDD" parent="HBoxContainer" instance=ExtResource("1_ifoal")]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+texture = ExtResource("3_rpkkp")
+
+[node name="PinkDD" parent="HBoxContainer" instance=ExtResource("1_ifoal")]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+texture = ExtResource("4_faiig")
+
+[node name="PurpleDD" parent="HBoxContainer" instance=ExtResource("1_ifoal")]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+texture = ExtResource("5_qhs2c")
+
+[node name="YellowDD" parent="HBoxContainer" instance=ExtResource("1_ifoal")]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+texture = ExtResource("6_gk1rk")
+
+[node name="ThinkBubble" parent="." groups=["think_bubble"] instance=ExtResource("9_e5pk3")]
+
+[node name="Score" type="Label" parent="." groups=["score"]]
+offset_left = 1048.0
+offset_top = 16.0
+offset_right = 1264.0
+offset_bottom = 136.0
+theme_override_fonts/font = ExtResource("10_s6hwf")
+theme_override_font_sizes/font_size = 120
+text = "00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="Hearts" type="Node2D" parent="."]
+
+[node name="HeartBackground" type="TextureRect" parent="Hearts"]
+unique_name_in_owner = true
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 384.0
+offset_bottom = 128.0
+texture = ExtResource("11_114wt")
+
+[node name="Heart1" type="TextureRect" parent="Hearts"]
+unique_name_in_owner = true
+visible = false
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 144.0
+offset_bottom = 128.0
+texture = ExtResource("12_qsrvy")
+
+[node name="Heart2" type="TextureRect" parent="Hearts"]
+unique_name_in_owner = true
+visible = false
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 264.0
+offset_bottom = 128.0
+texture = ExtResource("13_xkfi1")
+
+[node name="Heart3" type="TextureRect" parent="Hearts"]
+unique_name_in_owner = true
+visible = false
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 384.0
+offset_bottom = 128.0
+texture = ExtResource("14_t1shs")
+
+[node name="GameOver" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+layer = 3
+visible = false
+script = ExtResource("15_vmsio")
+
+[node name="TextureRect" type="TextureRect" parent="GameOver"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_rpmfb")
+
+[node name="Label2" type="Label" parent="GameOver"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -517.0
+offset_top = -168.0
+offset_right = 518.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("16_vvd3g")
+theme_override_font_sizes/font_size = 120
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="GameOver"]
+offset_left = 448.0
+offset_top = 408.0
+offset_right = 832.0
+offset_bottom = 536.0
+texture_normal = ExtResource("17_xfmb5")
+texture_hover = ExtResource("18_hc4b2")
+stretch_mode = 0
+
+[node name="Label3" type="Label" parent="GameOver/TextureButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("10_s6hwf")
+theme_override_font_sizes/font_size = 56
+text = "Restart"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DragSound" type="AudioStreamPlayer" parent="." groups=["drag"]]
+stream = ExtResource("20_faruo")
+volume_db = 5.0
+
+[node name="CorrectSound" type="AudioStreamPlayer" parent="." groups=["correct"]]
+stream = ExtResource("22_d22ir")
+volume_db = -15.0
+
+[node name="IncorrectSound" type="AudioStreamPlayer" parent="." groups=["incorrect"]]
+stream = ExtResource("23_y531o")
+volume_db = -10.0
+
+[node name="PopSound" type="AudioStreamPlayer" parent="." groups=["pop"]]
+stream = ExtResource("23_niljk")
+volume_db = -10.0
+
+[connection signal="timeout" from="Timer" to="GameManager" method="_on_timer_timeout"]
+[connection signal="pressed" from="GameOver/TextureButton" to="GameOver" method="_on_texture_button_pressed"]

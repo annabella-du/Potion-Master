@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4e2a6nbkbpbs"]
+
+[ext_resource type="Script" path="res://scripts/drag_drop.gd" id="1_5ty1n"]
+[ext_resource type="Texture2D" uid="uid://bkggkilq11seh" path="res://assets/background.png" id="2_thtp2"]
+
+[node name="DragDrop" type="TextureRect"]
+custom_minimum_size = Vector2(80, 80)
+offset_right = 40.0
+offset_bottom = 40.0
+expand_mode = 1
+script = ExtResource("1_5ty1n")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_thtp2")
+expand_mode = 1

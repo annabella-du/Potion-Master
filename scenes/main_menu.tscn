@@ -1,0 +1,197 @@
+[gd_scene load_steps=11 format=3 uid="uid://cxv2di0vkiyqr"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_3q8pt"]
+[ext_resource type="Texture2D" uid="uid://lo51h0cshk7s" path="res://assets/UI9.png" id="1_iyr53"]
+[ext_resource type="FontFile" uid="uid://bc47s4c4g18r6" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_b0gsr"]
+[ext_resource type="Texture2D" uid="uid://b0wb4bsoi7q55" path="res://assets/UI10.png" id="3_ukt27"]
+[ext_resource type="FontFile" uid="uid://wnemqx8qlvt" path="res://assets/fonts/PixelOperator8.ttf" id="4_et7xa"]
+[ext_resource type="Texture2D" uid="uid://cj0f5i2vmrnq2" path="res://assets/blue.png" id="5_csouk"]
+[ext_resource type="Texture2D" uid="uid://cuxlweppknxgv" path="res://assets/green.png" id="6_kvwlc"]
+[ext_resource type="Texture2D" uid="uid://xnn8d54y3oe7" path="res://assets/pink.png" id="7_aivus"]
+[ext_resource type="Texture2D" uid="uid://cna3w0tk6y250" path="res://assets/purple.png" id="8_v0hle"]
+[ext_resource type="Texture2D" uid="uid://b00l586v4gmny" path="res://assets/yellow.png" id="9_d0y7q"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_3q8pt")
+
+[node name="MainMenu" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="MainMenu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = -168.0
+offset_right = 360.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_iyr53")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="MainMenu/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_b0gsr")
+theme_override_font_sizes/font_size = 48
+text = "Potion Master"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="MainMenu"]
+offset_left = 520.0
+offset_top = 480.0
+offset_right = 760.0
+offset_bottom = 560.0
+texture_normal = ExtResource("1_iyr53")
+texture_hover = ExtResource("3_ukt27")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="MainMenu/TextureButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_et7xa")
+theme_override_font_sizes/font_size = 32
+text = "Play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="MainMenu"]
+offset_left = 39.0
+offset_top = -2.0
+offset_right = 239.0
+offset_bottom = 198.0
+texture = ExtResource("5_csouk")
+
+[node name="TextureRect7" type="TextureRect" parent="MainMenu"]
+offset_left = 762.0
+offset_top = 505.0
+offset_right = 962.0
+offset_bottom = 705.0
+texture = ExtResource("5_csouk")
+
+[node name="TextureRect3" type="TextureRect" parent="MainMenu"]
+offset_left = 1022.0
+offset_top = 247.0
+offset_right = 1222.0
+offset_bottom = 447.0
+texture = ExtResource("6_kvwlc")
+
+[node name="TextureRect8" type="TextureRect" parent="MainMenu"]
+offset_left = 416.0
+offset_top = -32.0
+offset_right = 616.0
+offset_bottom = 168.0
+texture = ExtResource("6_kvwlc")
+
+[node name="TextureRect4" type="TextureRect" parent="MainMenu"]
+offset_left = 740.0
+offset_top = -12.0
+offset_right = 940.0
+offset_bottom = 188.0
+texture = ExtResource("7_aivus")
+
+[node name="TextureRect11" type="TextureRect" parent="MainMenu"]
+offset_left = 289.0
+offset_top = 479.0
+offset_right = 489.0
+offset_bottom = 679.0
+texture = ExtResource("7_aivus")
+
+[node name="TextureRect5" type="TextureRect" parent="MainMenu"]
+offset_left = 36.0
+offset_top = 520.0
+offset_right = 236.0
+offset_bottom = 720.0
+texture = ExtResource("8_v0hle")
+
+[node name="TextureRect10" type="TextureRect" parent="MainMenu"]
+offset_left = 1066.0
+offset_top = 6.0
+offset_right = 1266.0
+offset_bottom = 206.0
+texture = ExtResource("8_v0hle")
+
+[node name="TextureRect6" type="TextureRect" parent="MainMenu"]
+offset_left = 32.0
+offset_top = 261.0
+offset_right = 232.0
+offset_bottom = 461.0
+texture = ExtResource("9_d0y7q")
+
+[node name="TextureRect9" type="TextureRect" parent="MainMenu"]
+offset_left = 1064.0
+offset_top = 494.0
+offset_right = 1264.0
+offset_bottom = 694.0
+texture = ExtResource("9_d0y7q")
+
+[node name="Instructions" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="Label" type="Label" parent="Instructions"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_et7xa")
+theme_override_font_sizes/font_size = 40
+text = "You are an Alchemists' apprentice.
+
+
+Deliver potions in the specified order
+by dragging and dropping them into
+the blank container
+
+
+If you mess up more than 3 times
+the Alchemist will kick you out!
+
+
+Press to Continue"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Credits" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="Label" type="Label" parent="Credits"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_et7xa")
+theme_override_font_sizes/font_size = 40
+text = "Made by jellybean27 in 1 day for Pirate
+Software Jam 15
+Discord: jellybean729
+
+
+=====Credits=====
+
+Music: Enchanted Festival by Matthew
+Pablo
+
+SFX by JonasTisell, SamsterBirdies,
+scott0642, and izzytherobloxgamer09
+
+Press to Continue"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="MainMenu/TextureButton" to="." method="_on_texture_button_pressed"]

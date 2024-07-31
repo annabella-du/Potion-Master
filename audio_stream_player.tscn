@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddme1huhs1a52"]
+
+[ext_resource type="AudioStream" uid="uid://cvw2kbhjpjwf8" path="res://assets/Enchanted Festival Loop.wav" id="1_6iqls"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_6iqls")
+volume_db = -14.99
+autoplay = true

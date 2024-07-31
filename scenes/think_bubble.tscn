@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://c4t0jjxrivhwp"]
+
+[ext_resource type="Texture2D" uid="uid://cydvyxcf1228h" path="res://assets/bubble.png" id="1_v1fev"]
+[ext_resource type="Script" path="res://scripts/think_bubble.gd" id="2_oofnd"]
+[ext_resource type="Texture2D" uid="uid://cj0f5i2vmrnq2" path="res://assets/blue.png" id="3_qxm5g"]
+[ext_resource type="Texture2D" uid="uid://cuxlweppknxgv" path="res://assets/green.png" id="4_28v37"]
+[ext_resource type="Texture2D" uid="uid://xnn8d54y3oe7" path="res://assets/pink.png" id="5_wvkhs"]
+[ext_resource type="Texture2D" uid="uid://cna3w0tk6y250" path="res://assets/purple.png" id="6_uhl0v"]
+[ext_resource type="Texture2D" uid="uid://b00l586v4gmny" path="res://assets/yellow.png" id="7_es376"]
+
+[node name="ThinkBubble" type="TextureRect"]
+custom_minimum_size = Vector2(240, 240)
+offset_left = 523.0
+offset_top = -11.0
+offset_right = 763.0
+offset_bottom = 229.0
+texture = ExtResource("1_v1fev")
+expand_mode = 1
+script = ExtResource("2_oofnd")
+potions = Array[Texture2D]([ExtResource("3_qxm5g"), ExtResource("4_28v37"), ExtResource("5_wvkhs"), ExtResource("6_uhl0v"), ExtResource("7_es376")])
+
+[node name="Potion" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -60.0
+offset_right = 60.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="FlashTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[node name="AnswerTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="FlashTimer" to="." method="_on_flash_timer_timeout"]
+[connection signal="timeout" from="AnswerTimer" to="." method="_on_answer_timer_timeout"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
